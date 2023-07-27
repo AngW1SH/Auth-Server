@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "UserEmailConfirm" ADD COLUMN     "creationtime" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

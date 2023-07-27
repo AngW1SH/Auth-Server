@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Pomodoro {
+  id          String @id @default(uuid())
+  title       String
+  description String
+  repeats     Int
+  order       Int    @default(0)
+  userid      String @default("")
+}
+
+model User {
+  id       String  @id @default(uuid())
+  email    String
+  password String
+  active   Boolean @default(false)
+  refresh  String  @default("")
+}
+
+model UserEmailConfirm {
+  id           String   @id @default(uuid())
+  token        String
+  userid       String   @default("")
+  creationtime DateTime @default(now())
+}
