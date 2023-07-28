@@ -10,15 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Pomodoro {
-  id          String @id @default(uuid())
-  title       String
-  description String
-  repeats     Int
-  order       Int    @default(0)
-  userid      String @default("")
-}
-
 model User {
   id       String  @id @default(uuid())
   email    String
