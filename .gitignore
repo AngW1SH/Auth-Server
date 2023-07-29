@@ -3,3 +3,6 @@ build/
 coverage/
 dist/
 .env
+app.js
+prisma/app-db/client
+prisma/auth-db/client
