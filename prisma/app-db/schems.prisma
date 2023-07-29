@@ -1,0 +1,12 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("APP_DATABASE_URL")
+}
+
+// prisma generate --schema prisma/app-db/schema.prisma
+// npx prisma migrate dev --schema prisma/app-db/schema.prisma

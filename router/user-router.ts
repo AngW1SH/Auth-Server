@@ -1,9 +1,9 @@
 import express from "express";
-import prisma from "../client";
+import { prismaAuth as prisma } from "../prisma-client";
 import crypto from "node:crypto";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
-import jwt, { JwtPayload, VerifyErrors } from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 import passport from "../passport/";
 import { generateAccessToken, generateRefreshToken } from "../jwt/";
@@ -11,7 +11,7 @@ import { generateAccessToken, generateRefreshToken } from "../jwt/";
 const userRouter = express.Router();
 
 userRouter.get(
-  "/islogged",
+  "/authenticate",
   passport.authenticate("jwt-authenticate", { session: false }),
   async (req, res) => {
     return res.status(200).send();

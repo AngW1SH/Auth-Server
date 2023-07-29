@@ -1,6 +1,6 @@
 import { Strategy as localStrategy } from "passport-local";
 import bcrypt from "bcryptjs";
-import prisma from "../client";
+import { prismaAuth as prisma } from "../prisma-client";
 
 const loginStrategy = new localStrategy(async function verify(
   username,
@@ -10,7 +10,7 @@ const loginStrategy = new localStrategy(async function verify(
   const doesUserExist = await prisma.user.findFirst({
     where: {
       email: username,
-      active: true
+      active: true,
     },
   });
 

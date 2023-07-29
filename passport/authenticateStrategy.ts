@@ -1,12 +1,12 @@
 import { Strategy as JWTStrategy } from "passport-jwt";
-import prisma from "../client";
+import { prismaAuth as prisma } from "../prisma-client";
 import { Request } from "express";
 
 const opts: any = {};
 opts.jwtFromRequest = function (req: Request) {
   let token = "";
   if (req && req.signedCookies) {
-    token = req.signedCookies["pomonotes-access"];
+    token = req.signedCookies["passportauth-access"];
   }
   return token;
 };

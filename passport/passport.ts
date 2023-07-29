@@ -1,8 +1,6 @@
 import passport from "passport";
-import { Strategy as localStrategy } from "passport-local";
-import { Strategy as JWTStrategy } from "passport-jwt";
-import bcrypt from "bcryptjs";
-import prisma from "../client";
+
+import { prismaAuth as prisma } from "../prisma-client";
 import loginStrategy from "./loginStrategy";
 import authenticateStrategy from "./authenticateStrategy";
 
